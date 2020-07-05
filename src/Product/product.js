@@ -7,62 +7,13 @@ class Product extends React.Component {
     constructor() {
         super();
         this.state = {
-            data:  [
-                {
-                    "product_id": 10005,
-                    "name": "PUMA Formal Shirt",
-                    "price": 1200,
-                    "size": 34,
-                    "color": "RED",
-                    "brandName": "PUMA",
-                    "addedToCard": true
-                },
-                {
-                    "product_id": 10006,
-                    "name": "PUMA Casual Shirt",
-                    "price": 1200,
-                    "size": 34,
-                    "color": "RED",
-                    "brandName": "PUMA",
-                    "addedToCard": true
-                },
-                {
-                    "product_id": 10006,
-                    "name": "PUMA Casual Shirt",
-                    "price": 1200,
-                    "size": 34,
-                    "color": "RED",
-                    "brandName": "PUMA",
-                    "addedToCard": true
-                },
-                {
-                    "product_id": 10009,
-                    "name": "PUMA Casual Shirt",
-                    "price": 1200,
-                    "size": 34,
-                    "color": "RED",
-                    "brandName": "PUMA",
-                    "addedToCard": true
-                },
-                {
-                    "product_id": 10008,
-                    "name": "PUMA Casual Shirt",
-                    "price": 1200,
-                    "size": 34,
-                    "color": "RED",
-                    "brandName": "PUMA",
-                    "addedToCard": false
-                },
-                {
-                    "product_id": 10007,
-                    "name": "PUMA Casual Shirt",
-                    "price": 1200,
-                    "size": 34,
-                    "color": "yellow",
-                    "brandName": "PUMA",
-                    "addedToCard": false
-                }
-            ]
+            data:  []
+        }
+    }
+
+    componentDidUpdate(){
+        if(this.state.data !== this.props.data) {
+          this.setState({data : this.props.data});
         }
     }
 

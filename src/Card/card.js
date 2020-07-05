@@ -8,45 +8,29 @@ class Cards extends React.Component {
     
     constructor() {
         super();
-        this.state = { 'data' : {
-            "cardList": [
-                {
-                    "quantity": 1,
-                    "price": 1200,
-                    "name": "PUMA Formal Shirt",
-                    "card_id": 1007,
-                    "color": 'RED',
-                    "product_id": 10005
-                },
-                {
-                    "quantity": 1,
-                    "price": 1200,
-                    "name": "PUMA Formal Shirt",
-                    "card_id": 1006,
-                    "color": 'RED',
-                    "product_id": 10004
-                }
-            ],
-            "total": 1200
-        }
+        this.state = { 'data' : { 'cardList': [], 'total': 0} };
     }
+
+    componentDidUpdate(){
+        if(this.state.data !== this.props.data) {
+          this.setState({data : this.props.data});
+        }
     }
 
     cartlist() {
-    
         const purchases = this.state.data.cardList.map((item, index) => {
-          const { name, color, price, quantity} = item;
+          const { name, price, quantity} = item;
           
           return (
             <li key={index}>
-              <span className="cartColor" style={{ background: color, float: 'left' }}>{name}</span> 
+              <span className="cartColor" style={{ backgroundColor: '#ffb3ff' , float: 'left' }}>{name}</span> 
               
               <div style={{ float: 'left', paddingLeft: '50px'}}> 
               <button style={{ float: 'left'}}>➕</button>
               </div>
               <span style={{ float: 'left', paddingLeft: '15px'}}>{quantity}</span> 
               <div style={{ float: 'left', paddingLeft: '15px'}}> 
-              <button style={{ float: 'left', paddingLeft: '15px' }}>➖</button>
+              <button style={{ float: 'left'}}>➖</button>
               </div>
 
               <span  style={{float:'right'}}> {`$ ${price}`}</span>
