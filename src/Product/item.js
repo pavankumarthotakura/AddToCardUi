@@ -4,7 +4,10 @@ import './product.css';
 const Item = props => {
     const { name, price, color, addedToCard } = props.card;
   
-    const buy = () => {console.log("working")};
+    const buy = (card) => {
+      console.log(JSON.stringify(card));
+      props.addToCardItems({...card, "quantity" : 1});
+    };
   
     return (
       <div className="brick">
@@ -17,7 +20,7 @@ const Item = props => {
             <h4>{name}</h4>
             
             <span style={{float: 'left'}}>{`price : ${price}`}</span>
-            <button disabled={addedToCard} className={ addedToCard ? 'addButton' : 'buyButton'} onClick={() => buy()}>{addedToCard ? 'Added To Card' : 'Add To Card'}</button>
+            <button disabled={addedToCard} className={ addedToCard ? 'addButton' : 'buyButton'} onClick={() => buy(props.card)}>{addedToCard ? 'Added To Card' : 'Add To Card'}</button>
             
           </div>
         </div>

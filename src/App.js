@@ -3,7 +3,7 @@ import './App.css';
 import axios from 'axios';
 import Product from './Product/product';
 import Card from './Card/card';
-
+export const url = 'http://localhost:8080';
 class  App extends React.Component {
 
   constructor() {
@@ -19,7 +19,7 @@ class  App extends React.Component {
   }
 
   getRefreshedData = () => {
-    axios.get('http://localhost:8080/data').then(response => {
+    axios.get(`${url}/data`).then(response => {
       console.log(response.data);
       this.setState({
         productdata : response.data.productList,
