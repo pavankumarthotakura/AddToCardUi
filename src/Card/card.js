@@ -71,10 +71,11 @@ class Cards extends React.Component {
 
     render() {
         return (
-            <div className="wall">
+            <div style={{paddingTop:'100px'}} className="wall">
             <Card>
                 <CardHeader title="Added Items"/>
                 <CardContent>
+                <hr/>
                 <div className="Cart">
                        <ul>{this.cartlist().length === 0 ? "No Items Found" : this.cartlist()}</ul>
                        {this.cartlist().length !== 0 ? <hr/> : null}

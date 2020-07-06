@@ -3,7 +3,12 @@ import './App.css';
 import axios from 'axios';
 import Product from './Product/product';
 import Card from './Card/card';
+import AppBar from '@material-ui/core/AppBar';
+import Toolbar from '@material-ui/core/Toolbar';
+import Typography from '@material-ui/core/Typography';
+
 export const url = 'http://localhost:8080';
+
 class  App extends React.Component {
 
   constructor() {
@@ -31,7 +36,11 @@ class  App extends React.Component {
   render() {
      return (
         <div className="App">
-      
+        <AppBar>
+          <Toolbar>
+            <Typography variant="h6">Bazinga</Typography>
+          </Toolbar>
+         </AppBar>
          <Card data = {this.state.cardsdata}  getRefreshedData = {this.getRefreshedData} />
          <Product data = {this.state.productdata} getRefreshedData = {this.getRefreshedData}/>
         </div>
